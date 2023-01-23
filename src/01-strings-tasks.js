@@ -18,8 +18,9 @@
  *   'aa',''    => 'aa'
  *   '',  'bb'  => 'bb'
  */
-function concatenateStrings(/* value1, value2 */) {
-  throw new Error('Not implemented');
+function concatenateStrings(value1, value2) {
+  const value3 = value1 + value2;
+  return value3;
 }
 
 
@@ -202,8 +203,35 @@ function extractEmails(/* str */) {
  *             '└──────────┘\n'
  *
  */
-function getRectangleString(/* width, height */) {
-  throw new Error('Not implemented');
+function getRectangleString(width, height) {
+  let string1 = '┌';
+  if (width > 2) {
+    for (let i = 0; i < (width - 2); i += 1) {
+      string1 += '─';
+    }
+  }
+  string1 += '┐\n';
+  if (height > 2) {
+    for (let j = 0; j < (height - 2); j += 1) {
+      let string2 = '│';
+      if (width > 2) {
+        for (let k = 0; k < (width - 2); k += 1) {
+          string2 += ' ';
+        }
+      }
+      string2 += '│\n';
+      string1 += string2;
+    }
+  }
+  let string3 = '└';
+  if (width > 2) {
+    for (let l = 0; l < (width - 2); l += 1) {
+      string3 += '─';
+    }
+  }
+  string3 += '┘\n';
+  string1 += string3;
+  return string1;
 }
 
 
@@ -269,8 +297,10 @@ function isString(/* value */) {
  *   'Q♠' => 50
  *   'K♠' => 51
  */
-function getCardId(/* value */) {
-  throw new Error('Not implemented');
+function getCardId(value) {
+  const string1 = ['A♣', '2♣', '3♣', '4♣', '5♣', '6♣', '7♣', '8♣', '9♣', '10♣', 'J♣', 'Q♣', 'K♣', 'A♦', '2♦', '3♦', '4♦', '5♦', '6♦', '7♦', '8♦', '9♦', '10♦', 'J♦', 'Q♦', 'K♦', 'A♥', '2♥', '3♥', '4♥', '5♥', '6♥', '7♥', '8♥', '9♥', '10♥', 'J♥', 'Q♥', 'K♥', 'A♠', '2♠', '3♠', '4♠', '5♠', '6♠', '7♠', '8♠', '9♠', '10♠', 'J♠', 'Q♠', 'K♠'];
+  const found1 = string1.findIndex((element) => element === value);
+  return found1;
 }
 
 
